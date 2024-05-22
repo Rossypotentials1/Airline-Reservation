@@ -3,11 +3,14 @@ package com.rossypotentials.Airline.Reservation.System.domain.entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,4 +24,7 @@ public class Flight {
     private String destination;
     private LocalDateTime departureTime;
     private LocalDateTime arrivalTime;
+
+    @OneToMany(mappedBy = "flight")
+    private List<Reservation> reservationList;
 }
