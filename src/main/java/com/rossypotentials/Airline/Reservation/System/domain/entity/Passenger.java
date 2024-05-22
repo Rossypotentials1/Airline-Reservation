@@ -17,6 +17,7 @@ import java.util.List;
 public class Passenger extends BaseClass {
     private String name;
     private String email;
+
     @OneToMany(mappedBy = "passenger")
     private List<Reservation>reservationList;
 }
